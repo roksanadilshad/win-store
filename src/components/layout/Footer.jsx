@@ -15,7 +15,7 @@ const Footer = () => {
           
           {/* Column 1: Brand & Contact */}
           <div className="flex flex-col gap-4">
-            <img src="/logo.png" alt="Win Store" className="h-10 w-fit object-contain brightness-0 invert" />
+             <h1 className="text-2xl text-white font-bold tracking-tighter">WIN<span className="font-light">store</span></h1>
             <div className="mt-4">
               <p className="text-[#00CAD7] font-medium mb-1  text-sm">Got questions? Call us 24/7!</p>
               <p className="text-xs leading-relaxed">03 111 666 144</p>
@@ -53,10 +53,10 @@ const Footer = () => {
         {/* Bottom Section: Payment Badges */}
         <div className="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-end items-center gap-4">
           <div className="flex gap-2 h-8">
-            <img src="/images/payments/visa.png" alt="Visa" className="h-full object-contain rounded bg-white px-1" />
-            <img src="/images/payments/mastercard.png" alt="Mastercard" className="h-full object-contain rounded bg-white px-1" />
-            <img src="/images/payments/cash.png" alt="Cash on Delivery" className="h-full object-contain rounded bg-white px-1" />
-            <img src="/images/payments/installments.png" alt="Installment Plans" className="h-full object-contain rounded bg-white px-1" />
+            <img src="https://i.pinimg.com/1200x/3d/d3/de/3dd3de3c0ea439adcd71d4531e0e181c.jpg" alt="Visa" className="h-full object-contain rounded bg-white px-1" />
+            <img src="https://i.pinimg.com/1200x/36/7c/26/367c26d9ba9b9043c9bb4b5a17ab4d2f.jpg" alt="Mastercard" className="h-full object-contain rounded bg-white px-1" />
+            <img src="https://i.pinimg.com/736x/47/90/f4/4790f4779df6c6d2aeba911e215e8f42.jpg" alt="Cash on Delivery" className="h-full object-contain rounded bg-white px-1" />
+            <img src="https://i.pinimg.com/1200x/da/4f/ad/da4fadae3a053e312bfb280d6e3f3a9c.jpg" alt="Installment Plans" className="h-full object-contain rounded bg-white px-1" />
           </div>
         </div>
       </div>

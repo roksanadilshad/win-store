@@ -13,9 +13,9 @@ const Navbar = () => {
           
           {/* Logo - Matches the 'Win Store' style */}
           <div className="flex-shrink-0 cursor-pointer">
-             <img src="/logo.png" alt="Win Store" className="h-10 object-contain" />
+             {/* <img src="/logo.png" alt="Win Store" className="h-10 object-contain" /> */}
              {/* If you don't have the logo image yet, use text: */}
-             {/* <h1 className="text-2xl font-bold tracking-tighter">WIN<span className="font-light">store</span></h1> */}
+             <h1 className="text-2xl font-bold tracking-tighter">WIN<span className="font-light">store</span></h1>
           </div>
 
           {/* Search Bar - Professional Multi-part Input */}

@@ -70,7 +70,7 @@ const HeroBanner = () => {
                   {/* Product Images with Floating Animation */}
                   <div className="relative z-10 flex items-end gap-4 animate-float">
                     <img src={slide.img1} alt="Product 1" className="w-48 md:w-64 rounded-2xl object-contain drop-shadow-2xl" />
-                    <img src={slide.img2} alt="Product 2" className="w-64 md:w-80 rounded-2xl object-contain drop-shadow-2xl" />
+                    <img src={slide.img2} alt="Product 2" className="w-50 md:w-80 rounded-2xl object-contain drop-shadow-2xl" />
                   </div>
 
                   {/* 40% OFF Badge - The "Eye-Catcher" */}
