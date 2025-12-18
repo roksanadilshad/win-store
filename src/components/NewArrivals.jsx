@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -18,12 +17,12 @@ const NewArrivals = () => {
           <span className="text-[#1CB1AD] font-semibold">New</span> Arrivals
         </h2>
         
-        {/* Custom Navigation Buttons (Professional Placement) */}
-        <div className="flex gap-2">
-          <button className="new-prev bg-white border border-gray-200 p-2 rounded-full hover:bg-[#1CB1AD] hover:text-white transition-all shadow-sm">
+        {/* Navigation Buttons: Hidden on mobile since slider is disabled */}
+        <div className="hidden md:flex gap-2">
+          <button className="new-prev bg-white border border-gray-200 p-2 rounded-full hover:bg-[#1CB1AD] hover:text-white transition-all shadow-sm cursor-pointer">
             <FiChevronLeft size={20} />
           </button>
-          <button className="new-next bg-white border border-gray-200 p-2 rounded-full hover:bg-[#1CB1AD] hover:text-white transition-all shadow-sm">
+          <button className="new-next bg-white border border-gray-200 p-2 rounded-full hover:bg-[#1CB1AD] hover:text-white transition-all shadow-sm cursor-pointer">
             <FiChevronRight size={20} />
           </button>
         </div>
@@ -33,26 +32,52 @@ const NewArrivals = () => {
       <Swiper
         modules={[Navigation, Autoplay]}
         spaceBetween={16}
-        slidesPerView={2} // Mobile default
+        // --- RESPONSIVE FIX ---
+        slidesPerView={1} // Default for mobile if enabled
+        enabled={false}   // Slider OFF by default (Mobile)
+        breakpoints={{
+          768: {
+            enabled: true,    // Slider ON for Tablet
+            slidesPerView: 4,
+          },
+          1024: {
+            enabled: true,    // Slider ON for Desktop
+            slidesPerView: 6,
+          },
+        }}
+        // ----------------------
         navigation={{
           prevEl: '.new-prev',
           nextEl: '.new-next',
         }}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
-        breakpoints={{
-          640: { slidesPerView: 3 },
-          768: { slidesPerView: 4 },
-          1024: { slidesPerView: 6 }, // Desktop matching your grid
-        }}
         className="pb-4"
       >
-        {NEW_ARRIVALS.map((product) => (
-          <SwiperSlide key={product.id}>
-            {/* We pass the product to your existing ProductCard */}
-            <ProductCard product={product} />
-          </SwiperSlide>
-        ))}
+        {/* On Mobile (when Swiper is disabled), this becomes a standard Grid */}
+        <div className="grid grid-cols-2 gap-4 md:block">
+          {NEW_ARRIVALS.map((product) => (
+            <SwiperSlide key={product.id} className="h-auto">
+              <ProductCard product={product} />
+            </SwiperSlide>
+          ))}
+        </div>
       </Swiper>
+      
+      {/* Mobile-only fallback grid if Swiper initialization interferes with layout */}
+      <style jsx global>{`
+        @media (max-width: 767px) {
+          .swiper-wrapper {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 16px !important;
+            transform: none !important;
+          }
+          .swiper-slide {
+            width: 100% !important;
+            margin-bottom: 10px;
+          }
+        }
+      `}</style>
     </section>
   );
 };

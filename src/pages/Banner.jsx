@@ -40,47 +40,56 @@ const HeroBanner = () => {
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         pagination={{ 
             clickable: true,
-            bulletClass: 'swiper-pagination-bullet !w-8 !h-1 !rounded-none !bg-gray-400 !opacity-100',
-            bulletActiveClass: '!bg-primary !w-12',
+            bulletClass: 'swiper-pagination-bullet !w-6 md:!w-8 !h-1 !rounded-none !bg-gray-400 !opacity-100',
+            bulletActiveClass: '!bg-primary !w-10 md:!w-12',
         }}
         className="hero-swiper"
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div className={`${slide.bgColor} w-full min-h-[500px] flex items-center transition-colors duration-1000`}>
-              <div className="max-w-7xl mx-auto px-4 w-full grid md:grid-cols-2 gap-8 items-center py-12">
+            {/* Adjusted min-height for mobile vs desktop */}
+            <div className={`${slide.bgColor} w-full min-h-[600px] md:min-h-[500px] flex items-center transition-colors duration-1000`}>
+              <div className="max-w-7xl mx-auto px-4 w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8 items-center py-16 md:py-12">
                 
-                {/* LEFT CONTENT (Animated) */}
-                <div className="z-10 animate-fadeIn">
-                  <h1 className="text-5xl md:text-6xl font-normal leading-tight text-gray-800">
+                {/* LEFT CONTENT */}
+                <div className="z-10 animate-fadeIn text-center md:text-left order-2 md:order-1">
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-normal leading-tight text-gray-800">
                     Shop <span className="text-banner-blue font-semibold">{slide.title}</span> <br />
                     <span className="text-banner-blue font-semibold">{slide.subtitle}</span>
                   </h1>
-                  <p className="text-gray-500 mt-6 max-w-md text-sm leading-relaxed">
+                  <p className="text-gray-500 mt-4 md:mt-6 max-w-md mx-auto md:mx-0 text-sm md:text-base leading-relaxed">
                     {slide.desc}
                   </p>
-                  <button className="mt-8 bg-btn-blue text-white px-10 py-3 rounded-md font-bold hover:bg-opacity-90 transition-all shadow-lg hover:-translate-y-1">
+                  <button className="mt-8 bg-btn-blue text-white px-8 md:px-10 py-3 rounded-md font-bold hover:bg-opacity-90 transition-all shadow-lg hover:-translate-y-1 w-full sm:w-auto">
                     View More
                   </button>
                 </div>
 
-                {/* RIGHT CONTENT (Slider Image Area) */}
-                <div className="relative flex justify-center items-center h-full min-h-[350px]">
+                {/* RIGHT CONTENT */}
+                <div className="relative flex justify-center items-center h-full min-h-[250px] md:min-h-[350px] order-1 md:order-2">
                   
-                  {/* Product Images with Floating Animation */}
-                  <div className="relative z-10 flex items-end gap-4 animate-float">
-                    <img src={slide.img1} alt="Product 1" className="w-48 md:w-64 rounded-2xl object-contain drop-shadow-2xl" />
-                    <img src={slide.img2} alt="Product 2" className="w-50 md:w-80 rounded-2xl object-contain drop-shadow-2xl" />
+                  {/* Product Images - Adjusted sizes for mobile */}
+                  <div className="relative z-10 flex items-end gap-3 md:gap-4 animate-float">
+                    <img 
+                        src={slide.img1} 
+                        alt="Product 1" 
+                        className="w-32 sm:w-40 md:w-64 rounded-xl md:rounded-2xl object-contain drop-shadow-xl" 
+                    />
+                    <img 
+                        src={slide.img2} 
+                        alt="Product 2" 
+                        className="w-40 sm:w-52 md:w-80 rounded-xl md:rounded-2xl object-contain drop-shadow-2xl" 
+                    />
                   </div>
 
-                  {/* 40% OFF Badge - The "Eye-Catcher" */}
-                  <div className="absolute top-0 right-4 md:right-10 w-32 h-32 gradient-orange rounded-full flex flex-col items-center justify-center text-white shadow-2xl z-20 border-4 border-white/30 scale-110 animate-pulse-slow">
-                    <span className="text-3xl font-black leading-none">{slide.discount}</span>
-                    <span className="text-xl font-light leading-none">Off</span>
+                  {/* Discount Badge - Scaled for mobile */}
+                  <div className="absolute -top-4 right-2 sm:right-10 md:right-10 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 gradient-orange rounded-full flex flex-col items-center justify-center text-white shadow-2xl z-20 border-4 border-white/30 scale-90 md:scale-110 animate-pulse-slow">
+                    <span className="text-xl sm:text-2xl md:text-3xl font-black leading-none">{slide.discount}</span>
+                    <span className="text-sm sm:text-base md:text-xl font-light leading-none">Off</span>
                   </div>
 
-                  {/* Decorative Background Element */}
-                  <div className="absolute inset-0 bg-white/20 rounded-full blur-3xl scale-75 -z-10"></div>
+                  {/* Decorative Glow */}
+                  <div className="absolute inset-0 bg-white/30 rounded-full blur-3xl scale-90 md:scale-75 -z-10"></div>
                 </div>
               </div>
             </div>
@@ -88,18 +97,17 @@ const HeroBanner = () => {
         ))}
       </Swiper>
 
-      {/* Global CSS for animations (Add to index.css) */}
       <style jsx>{`
         @keyframes float {
           0% { transform: translateY(0px); }
-          50% { transform: translateY(-15px); }
+          50% { transform: translateY(-10px); }
           100% { transform: translateY(0px); }
         }
         .animate-float { animation: float 6s ease-in-out infinite; }
         .animate-fadeIn { animation: fadeIn 1s ease-out; }
         @keyframes fadeIn {
-          from { opacity: 0; transform: translateX(-20px); }
-          to { opacity: 1; transform: translateX(0); }
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
     </section>
