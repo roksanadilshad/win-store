@@ -138,7 +138,7 @@ export const BEST_DEALS = {
       price: "Rs.8,500",
       oldPrice: "Rs.10,500",
       discount: "Save 19%",
-      image: "https://i.pinimg.com/736x/5b/c8/a6/5bc8a68e4a9ff851671a27057b9bf596.jpg",
+      image: "https://i.pinimg.com/736x/fd/cd/05/fdcd053e9363eec24b34a388afb8b01e.jpg",
       type: "side-card",
     },
     {
