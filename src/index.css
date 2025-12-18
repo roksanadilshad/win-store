@@ -1,1 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import "tailwindcss";
+
+@theme {
+  /* Navbar */
+  --color-primary: #03484D;
+  --color-secondary: #0E3B3E;
+  --color-accent: #FFFFFF;
+  --color-muted: #ABA3A3;
+  /* Banner Specific Colors */
+  --color-banner-bg: #F3F9D2; 
+  --color-banner-blue: #1CB1AD;
+  --color-btn-blue: #00B4FF;
+}
+
+@layer base {
+body {
+  font: "Lato", sans-serif;
+}
+}

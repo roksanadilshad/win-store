@@ -1,13 +1,22 @@
-import './App.css'
+import "./App.css";
+import BestDeals from "./components/BestDeals";
+import CategorySection from "./components/CategorySection";
+import Footer from "./components/layout/Footer";
+import Navbar from "./components/layout/Navbar";
+import NewArrivals from "./components/NewArrivals";
+import HeroBanner from "./pages/Banner";
 
 function App() {
- 
-
   return (
     <>
-      <h2 className='text-4xl'>hello</h2>
+    <Navbar/>
+      <HeroBanner/>
+      <CategorySection/>
+      <NewArrivals/>
+      <BestDeals/>
+      <Footer/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
