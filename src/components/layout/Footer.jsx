@@ -18,14 +18,14 @@ const Footer = () => {
              <h1 className="text-2xl text-white font-bold tracking-tighter">WIN<span className="font-light">store</span></h1>
             <div className="mt-4">
               <p className="text-[#00CAD7] font-medium mb-1  text-sm">Got questions? Call us 24/7!</p>
-              <p className="text-xs leading-relaxed">03 111 666 144</p>
-              <p className="text-xs leading-relaxed">0317 1777015</p>
+              <p className="text-xs text-gray-200 leading-relaxed">03 111 666 144</p>
+              <p className="text-xs text-gray-200  leading-relaxed">0317 1777015</p>
             </div>
             <div>
               <p className="text-[#00CAD7] font-medium mb-1 text-sm">Contact info</p>
-              <p className="text-xs">info@winstore.pk</p>
+              <p className="text-xs text-gray-200">info@winstore.pk</p>
             </div>
-            <div className="flex gap-4 mt-2">
+            <div className="flex gap-4 text-gray-200 mt-2">
               <FaFacebookF className="cursor-pointer hover:text-[#00CAD7] transition-colors" />
               <FaTwitter className="cursor-pointer hover:text-[#00CAD7] transition-colors" />
               <FaLinkedinIn className="cursor-pointer hover:text-[#00CAD7] transition-colors" />

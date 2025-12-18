@@ -10,7 +10,7 @@ import 'swiper/css/navigation';
 
 const CategorySection = () => {
   return (
-    <section className="max-w-7xl mx-auto px-4 pb-16 relative group">
+    <section className="max-w-7xl mx-auto px-4 p-16 relative group">
       {/* Header with stylized typography */}
       {/* <div className="flex items-center gap-4 mb-10">
         <h2 className="text-2xl font-extrabold text-secondary tracking-tight">
